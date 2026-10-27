@@ -1,0 +1,128 @@
+/* =========================================================
+   Rueda Libre v2.0 - styles.css
+   Se carga DESPUÉS de bootstrap.min.css. Sin reglas de prioridad forzada y
+   sin modificar el archivo de Bootstrap: la marca entra por
+   las variables --bs-*, las variables --bs-btn-* y unas
+   pocas clases propias que complementan al framework.
+   Paleta: Verde Ruta, Naranja Pedal, Azul Noche, Crema.
+   ========================================================= */
+
+/* 1. Variables de marca (sobrescriben las globales de Bootstrap) */
+:root {
+  --verde-ruta: #1E7A4F;
+  --verde-ruta-oscuro: #17613e;
+  --naranja-pedal: #F39A2B;
+  --azul-noche: #14213D;
+  --crema: #FAF6EF;
+
+  --bs-primary: #1E7A4F;
+  --bs-primary-rgb: 30, 122, 79;
+  --bs-body-font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bs-body-color: #14213D;
+  --bs-body-color-rgb: 20, 33, 61;
+  --bs-body-bg: #FAF6EF;
+  --bs-body-bg-rgb: 250, 246, 239;
+  --bs-heading-color: #14213D;
+  --bs-link-color: #1E7A4F;
+  --bs-link-color-rgb: 30, 122, 79;
+  --bs-link-hover-color: #17613e;
+  --bs-link-hover-color-rgb: 23, 97, 62;
+  --bs-border-radius: .75rem;
+  --bs-border-radius-sm: .5rem;
+  --bs-border-radius-lg: 1rem;
+}
+
+/* 2. Botón principal con Verde Ruta (variables del componente) */
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #1E7A4F;
+  --bs-btn-border-color: #1E7A4F;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #17613e;
+  --bs-btn-hover-border-color: #155a3a;
+  --bs-btn-focus-shadow-rgb: 30, 122, 79;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #134f34;
+  --bs-btn-active-border-color: #114730;
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #1E7A4F;
+  --bs-btn-disabled-border-color: #1E7A4F;
+}
+.btn-outline-primary {
+  --bs-btn-color: #1E7A4F;
+  --bs-btn-border-color: #1E7A4F;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #1E7A4F;
+  --bs-btn-hover-border-color: #1E7A4F;
+  --bs-btn-focus-shadow-rgb: 30, 122, 79;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #17613e;
+  --bs-btn-active-border-color: #17613e;
+  --bs-btn-disabled-color: #1E7A4F;
+  --bs-btn-disabled-border-color: #1E7A4F;
+}
+
+/* 3. Variante propia: Naranja Pedal con texto Azul Noche (contraste 7:1) */
+.btn-naranja {
+  --bs-btn-color: #14213D;
+  --bs-btn-bg: #F39A2B;
+  --bs-btn-border-color: #F39A2B;
+  --bs-btn-hover-color: #14213D;
+  --bs-btn-hover-bg: #e48a17;
+  --bs-btn-hover-border-color: #e48a17;
+  --bs-btn-focus-shadow-rgb: 243, 154, 43;
+  --bs-btn-active-color: #14213D;
+  --bs-btn-active-bg: #d27d0f;
+  --bs-btn-active-border-color: #d27d0f;
+  --bs-btn-disabled-color: #14213D;
+  --bs-btn-disabled-bg: #F39A2B;
+  --bs-btn-disabled-border-color: #F39A2B;
+}
+
+/* 4. Navbar con identidad */
+.site-nav { background-color: var(--azul-noche); }
+.site-nav[data-bs-theme="dark"] {
+  --bs-navbar-active-color: #F39A2B;
+  --bs-navbar-hover-color: #F39A2B;
+}
+
+/* 5. Clases propias que complementan a Bootstrap */
+.portada-marca { border-left: 6px solid var(--naranja-pedal); }
+
+.titulo-seccion { position: relative; padding-bottom: .6rem; }
+.titulo-seccion::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--naranja-pedal);
+}
+.titulo-seccion.text-center::after { left: 50%; transform: translateX(-50%); }
+
+.pie-marca { background: var(--azul-noche); color: #fff; }
+.pie-marca h3 { color: var(--naranja-pedal); }
+
+/* Proporción del carrusel: más alta en móvil, panorámica desde tablet */
+.ratio-promo { --bs-aspect-ratio: 56.25%; }
+@media (min-width: 768px) {
+  .ratio-promo { --bs-aspect-ratio: 36%; }
+}
+
+/* 6. Tarjeta de sección y botón flotante de WhatsApp */
+.panel { background: #fff; border-radius: var(--bs-border-radius-lg); box-shadow: 0 4px 6px rgba(0,0,0,.05), 0 1px 3px rgba(0,0,0,.1); }
+.btn-whatsapp { background: #0F7B6C; width: 56px; height: 56px; box-shadow: 0 4px 12px rgba(0,0,0,.3); z-index: 1000; color: #fff; font-size: 1.7rem; }
+.btn-whatsapp:hover { background: #0b6256; color: #fff; }
+
+/* 7. Tablas de tarifas (identidad de la semana 1) */
+.tabla-tarifas { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.tabla-tarifas caption { caption-side: top; text-align: left; font-weight: 700; font-size: 1.1rem; color: var(--azul-noche); padding: 0 0 .5rem; }
+.tabla-tarifas th, .tabla-tarifas td { padding: .5rem .35rem; text-align: left; border-bottom: 1px solid #dfe3e8; overflow-wrap: anywhere; }
+.tabla-tarifas thead th { background: var(--azul-noche); color: #fff; }
+.tabla-tarifas td:not(:first-child), .tabla-tarifas th:not(:first-child) { text-align: right; white-space: nowrap; }
+@media (min-width: 768px) {
+  .tabla-tarifas { font-size: 1rem; }
+  .tabla-tarifas th, .tabla-tarifas td { padding: .75rem 1rem; }
+}
